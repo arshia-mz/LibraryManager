@@ -1,7 +1,7 @@
 //includding the libraries
 #include <iostream>
 #include <string>
-
+#include "sqlite3.h"
 using namespace std;
 
 //the classes
@@ -35,7 +35,7 @@ protected:
 
 public:
     void SignIn(string UserName,string Password,string Name);
-    void SignUp(string UserName,string Password);
+    bool SignUp(string UserName,string Password);
     void search(string BookName);
     void Get(bool give);
     void Return(bool give);
@@ -49,30 +49,35 @@ void User::SignIn(string Name,string UserName,string Password)
     /*adding to the db files */
 }
 
-void User::SignUp(string UserName,string Password)
+bool User::SignUp(string UserName,string Password)
 {
     for(int i = 0 ; i < 2 ; i++)
     {
-        if (UserName == this->AdminUserName[i] && Password == this->AdminPassword[i])
-        {
-            cout<<"Welcom"<<AdminUserName[i];
-        }
+        
         /*search in db*/
-        else
-        {
-            cout<<"Not Found";
-        }
+        
     }
-    
+    return false;
 }
 class Admin : public User
 {
 public:
+    bool SignUp(string UserName,string Password);
     void AddBook(string BookName,string Type,int Year);
     void RemoveBook(string BookName);
 };
 
-
+bool Admin::SignUp(string UserName,string Password)
+{
+    for(int i = 0 ; i <2  ; i++)
+    {
+        if (UserName == this->AdminUserName[i] && Password == this->AdminPassword[i])
+           {
+               return true;
+           }
+    }
+      return false; 
+}
 
 int main()
 {
@@ -80,8 +85,14 @@ int main()
     string UserName ,Password;
     cin>>UserName;
     cin>>Password;
-    user.SignUp(UserName,Password);
-    
+    if (user.SignUp(UserName,Password))
+    {
+        cout<<"welcom "<<UserName;
+    }
+    else
+    {
+        cerr<<"The UserName or Password is wrong";
+    }
     
     
 }
