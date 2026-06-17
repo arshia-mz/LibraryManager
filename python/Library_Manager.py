@@ -1,3 +1,5 @@
+#Libraries
+import random
 #the classes 
 class Book():
     def __init__(self):
@@ -38,3 +40,8 @@ class Admin(User):
         super().__init__()
     def AddBook():pass
     def RemoveBook():pass
+
+#id generator
+def IdGenerator():
+    rnd = random.randint(0,100)
+    return rnd

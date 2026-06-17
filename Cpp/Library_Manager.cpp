@@ -1,8 +1,11 @@
 //includding the libraries
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "sqlite3.h"
+#include <time.h>
 using namespace std;
+
 
 //the classes
 class Book
@@ -79,6 +82,15 @@ bool Admin::SignUp(string UserName,string Password)
       return false; 
 }
 
+//id generator
+int IdGenerator()
+{
+    srand(time(0));
+    int rnd = rand()%100;
+    return rnd;
+}
+
+
 int main()
 {
     Admin user;
@@ -93,6 +105,6 @@ int main()
     {
         cerr<<"The UserName or Password is wrong";
     }
-    
+   
     
 }
