@@ -1,5 +1,16 @@
 #Libraries
 import random
+
+
+#Admins 
+AdminUserName = ['Arshia85','AMZ']
+AdminPassWord = ['Arshia85','AMZ']
+
+#id generator
+def IdGenerator():
+    rnd = random.randint(0,100)
+    return rnd
+
 #the classes 
 class Book():
     def __init__(self):
@@ -9,13 +20,16 @@ class Book():
         self.Year
         self.give = False
     def AddBook(self,BookName,Type,Year):
-        pass
+        self.BookName = BookName
+        self.Type = Type
+        self.Year = Year
+        self.BookId = IdGenerator()
     def RemoveBook(self,BookName):
         pass
     def search(self,BookName,Type,Year):
         pass
-    def ShowAll():
-        pass
+    def ShowAll(self):
+        print(f'{self.BookId} | {self.BookName} | {self.Type} | {self.Year}')
 
 class User():
     def __init__(self):
@@ -35,13 +49,12 @@ class User():
         pass
     def Return():
         pass
+    def ShowAll(self):
+        self.book.ShowAll()
 class Admin(User):
     def __init__(self):
         super().__init__()
-    def AddBook():pass
+    def AddBook(self,BookName,Type,Year):
+        self.book.AddBook(BookName,Type,Year)
     def RemoveBook():pass
-
-#id generator
-def IdGenerator():
-    rnd = random.randint(0,100)
-    return rnd
+    

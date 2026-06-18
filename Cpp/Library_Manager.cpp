@@ -6,6 +6,12 @@
 #include <time.h>
 using namespace std;
 
+//id generator
+int IdGenerator()
+{
+    int rnd = rand()%1000;
+    return rnd;
+}
 
 //the classes
 class Book
@@ -22,7 +28,17 @@ public:
     void search(string BookName);
     void ShowAll();
 };
+void Book::AddBook(string BookName,string Type,int Year){
+    this->BookName = BookName;
+    this->Type = Type;
+    this->year = Year;
+    this->BookId = IdGenerator();
+}
 
+void Book::ShowAll()
+{
+    cout<<BookId<<" | "<<this->BookName<<" | "<<this->Type<<" | "<<this->year<<endl;
+}
 class User 
 {
 protected:
@@ -42,6 +58,7 @@ public:
     void search(string BookName);
     void Get(bool give);
     void Return(bool give);
+    void ShowAll();
 };
 
 void User::SignIn(string Name,string UserName,string Password)
@@ -49,6 +66,7 @@ void User::SignIn(string Name,string UserName,string Password)
     this->UserName = UserName;
     this->Password = Password;
     this->Name = Name;
+    this->Id = IdGenerator();
     /*adding to the db files */
 }
 
@@ -62,12 +80,17 @@ bool User::SignUp(string UserName,string Password)
     }
     return false;
 }
+void User::ShowAll()
+{
+    book.ShowAll();
+}
 class Admin : public User
 {
 public:
     bool SignUp(string UserName,string Password);
     void AddBook(string BookName,string Type,int Year);
     void RemoveBook(string BookName);
+    
 };
 
 bool Admin::SignUp(string UserName,string Password)
@@ -81,30 +104,14 @@ bool Admin::SignUp(string UserName,string Password)
     }
       return false; 
 }
-
-//id generator
-int IdGenerator()
+void Admin::AddBook(string BookName,string Type,int Year)
 {
-    srand(time(0));
-    int rnd = rand()%100;
-    return rnd;
+    this->book.AddBook(BookName,Type,Year);
 }
-
 
 int main()
 {
     Admin user;
-    string UserName ,Password;
-    cin>>UserName;
-    cin>>Password;
-    if (user.SignUp(UserName,Password))
-    {
-        cout<<"welcom "<<UserName;
-    }
-    else
-    {
-        cerr<<"The UserName or Password is wrong";
-    }
-   
-    
+    user.AddBook("love","romance",2022);
+    user.ShowAll();
 }
