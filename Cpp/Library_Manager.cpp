@@ -39,6 +39,10 @@ void Book::ShowAll()
 {
     cout<<BookId<<" | "<<this->BookName<<" | "<<this->Type<<" | "<<this->year<<endl;
 }
+void Book::RemoveBook(string BookName)
+{
+    //deleting from db
+}
 class User 
 {
 protected:
@@ -48,9 +52,7 @@ protected:
     string Password;
     bool give = false;
     Book book;
-    /*Admin user & pass*/
-    string AdminUserName [2] = {"Arshia85","AMZ"};
-    string AdminPassword [2] = {"Arshia85","AMZ"};
+    
 
 public:
     void SignIn(string UserName,string Password,string Name);
@@ -90,7 +92,9 @@ public:
     bool SignUp(string UserName,string Password);
     void AddBook(string BookName,string Type,int Year);
     void RemoveBook(string BookName);
-    
+    /*Admin user & pass*/
+    string AdminUserName [2] = {"Arshia85","AMZ"};
+    string AdminPassword [2] = {"Arshia85","AMZ"};
 };
 
 bool Admin::SignUp(string UserName,string Password)
@@ -107,6 +111,11 @@ bool Admin::SignUp(string UserName,string Password)
 void Admin::AddBook(string BookName,string Type,int Year)
 {
     this->book.AddBook(BookName,Type,Year);
+}
+
+void Admin::RemoveBook(string BookName)
+{
+    this->book.RemoveBook(BookName);
 }
 
 int main()

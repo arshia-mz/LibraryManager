@@ -30,7 +30,6 @@ class Book():
         pass
     def ShowAll(self):
         print(f'{self.BookId} | {self.BookName} | {self.Type} | {self.Year}')
-
 class User():
     def __init__(self):
         self.Name
@@ -39,10 +38,11 @@ class User():
         self.Password
         self.give = False
         self.book = Book
-    def SignIn():
+    def SignIn(self,Name,UserName,Password):
         pass
-    def SignuP():
-        pass
+    def SignUp(self,UserName,Password):
+        if self.UserName == UserName and self.UserName == Password:
+            pass
     def search():
         pass
     def Get():
@@ -56,5 +56,13 @@ class Admin(User):
         super().__init__()
     def AddBook(self,BookName,Type,Year):
         self.book.AddBook(BookName,Type,Year)
-    def RemoveBook():pass
-    
+    def RemoveBook(self,BookName):
+        self.book.RemoveBook(BookName)
+
+
+def main():
+    pass
+
+
+if main == __name__:
+    pass
