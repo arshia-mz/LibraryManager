@@ -1,6 +1,6 @@
 #Libraries
 import random
-
+import sqlite3 
 
 #Admins 
 AdminUserName = ['Arshia85','AMZ']
@@ -30,6 +30,10 @@ class Book():
         pass
     def ShowAll(self):
         print(f'{self.BookId} | {self.BookName} | {self.Type} | {self.Year}')
+    def getBook(self,BookName):
+        pass
+    def returnBook(self,BookName):
+        pass
 class User():
     def __init__(self):
         self.Name

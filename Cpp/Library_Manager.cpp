@@ -21,11 +21,14 @@ private:
     int BookId;
     string Type;
     int year;
+    int count = 0;
     bool give = false;
 public:
     void AddBook(string BookName,string Type,int Year);
     void RemoveBook(string BookName);
     void search(string BookName);
+    void getBook(string BookName);
+    void returnBook(string BookName);
     void ShowAll();
 };
 void Book::AddBook(string BookName,string Type,int Year){
