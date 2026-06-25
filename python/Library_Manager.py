@@ -1,6 +1,6 @@
 #Libraries
 import random
-import sqlite3 
+import sqlite3
 
 #Admins 
 AdminUserName = ['Arshia85','AMZ']
@@ -11,21 +11,29 @@ def IdGenerator():
     rnd = random.randint(0,100)
     return rnd
 
+
+BookData = sqlite3.connect('Data/Book.db')
+UserData = sqlite3.connect('Data/Users.db')
+Bookcursor = BookData.cursor()
+Usercursor = UserData.cursor()
 #the classes 
 class Book():
     def __init__(self):
-        self.BookId
-        self.BookName
-        self.Type
-        self.Year
+        self.BookId = None
+        self.BookName = ""
+        self.Type = ""
+        self.Year = 0
         self.give = False
     def AddBook(self,BookName,Type,Year):
         self.BookName = BookName
         self.Type = Type
         self.Year = Year
         self.BookId = IdGenerator()
-    def RemoveBook(self,BookName):
-        pass
+        Bookcursor.execute("INSERT INTO book (id,name,type,year,count,give) VALUES(?,?,?,?,?,?);",(self.BookId,self.BookName,self.Type,self.Year,0,'False'))
+        BookData.commit()
+    def RemoveBook(self,BookName):#function for deletting the Data from Data Base
+        self.BookName = BookName
+        Bookcursor.execute('DELETE FROM book WHERE name=?;',(self.BookName))
     def search(self,BookName,Type,Year):
         pass
     def ShowAll(self):
@@ -41,7 +49,7 @@ class User():
         self.UserName
         self.Password
         self.give = False
-        self.book = Book
+        self.book = Book()
     def SignIn(self,Name,UserName,Password):
         pass
     def SignUp(self,UserName,Password):
@@ -65,8 +73,8 @@ class Admin(User):
 
 
 def main():
-    pass
+    book = Book()
+    book.AddBook('The Sports','All',2015)
 
 
-if main == __name__:
-    pass
+main()
