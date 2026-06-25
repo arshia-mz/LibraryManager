@@ -9,6 +9,7 @@ using namespace std;
 //id generator
 int IdGenerator()
 {
+    srand(time(0));
     int rnd = rand()%1000;
     return rnd;
 }
@@ -23,11 +24,12 @@ private:
     int year;
     int count = 0;
     bool give = false;
+    sqlite3 *db;
 public:
     void AddBook(string BookName,string Type,int Year);
     void RemoveBook(string BookName);
     void search(string BookName);
-    void getBook(string BookName);
+    void getBook(int PersonId,string BookName);
     void returnBook(string BookName);
     void ShowAll();
 };
@@ -36,6 +38,29 @@ void Book::AddBook(string BookName,string Type,int Year){
     this->Type = Type;
     this->year = Year;
     this->BookId = IdGenerator();
+    
+    sqlite3_open("../Data/Book.db",&db);
+    
+    // ✅ اول جدول بساز (اگه نبود)
+    sqlite3_exec(db,
+        "CREATE TABLE IF NOT EXISTS book (id INT, name TEXT, type TEXT, year INT, count INT, give TEXT);",
+        NULL, NULL, NULL);
+    
+    sqlite3_stmt *stmt;
+    sqlite3_prepare_v2(db,
+        "INSERT INTO book (id,name,type,year,count,give) VALUES(?,?,?,?,?,?);",
+        -1, &stmt, NULL);
+
+    sqlite3_bind_int(stmt,  1, BookId);
+    sqlite3_bind_text(stmt, 2, BookName.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, Type.c_str(),     -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt,  4, Year);
+    sqlite3_bind_int(stmt,  5, 0);
+    sqlite3_bind_text(stmt, 6, "False",          -1, SQLITE_STATIC);
+
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
 }
 
 void Book::ShowAll()
@@ -44,7 +69,18 @@ void Book::ShowAll()
 }
 void Book::RemoveBook(string BookName)
 {
-    //deleting from db
+    sqlite3_open("../Data/Book.db", &db);
+
+    sqlite3_stmt *stmt;
+    sqlite3_prepare_v2(db,
+        "DELETE FROM book WHERE name=?;",
+        -1, &stmt, NULL);
+
+    sqlite3_bind_text(stmt, 1, BookName.c_str(), -1, SQLITE_STATIC);
+
+    sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
 }
 class User 
 {
@@ -124,6 +160,6 @@ void Admin::RemoveBook(string BookName)
 int main()
 {
     Admin user;
-    user.AddBook("love","romance",2022);
+    
     user.ShowAll();
 }

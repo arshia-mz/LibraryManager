@@ -1,6 +1,19 @@
 {
     "tasks": [
         {
+            "label": "build",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "gcc -c sqlite3.c -o sqlite3.o && g++ Library_Manager.cpp sqlite3.o -o Library_Manager.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
             "command": "c:\\Program Files\\CodeBlocks\\MinGW\\bin\\g++.exe",
