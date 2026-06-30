@@ -9,7 +9,12 @@ using namespace std;
 //id generator
 int IdGenerator()
 {
-    srand(time(0));
+    static bool seeded = false;
+    if (!seeded)
+    {
+        srand(time(0));
+        seeded = true;
+    }
     int rnd = rand()%1000;
     return rnd;
 }
@@ -94,7 +99,7 @@ protected:
     
 
 public:
-    void SignIn(string UserName,string Password,string Name);
+    void SignIn(string Name,string UserName,string Password);
     bool SignUp(string UserName,string Password);
     void search(string BookName);
     void Get(bool give);
@@ -102,13 +107,91 @@ public:
     void ShowAll();
 };
 
-void User::SignIn(string Name,string UserName,string Password)
+
+void User::SignIn(string Name, string UserName, string Password)
 {
     this->UserName = UserName;
     this->Password = Password;
     this->Name = Name;
-    this->Id = IdGenerator();
     /*adding to the db files */
+
+    sqlite3 *db;
+    int rc = sqlite3_open("../Data/User.db", &db);
+    if (rc != SQLITE_OK)
+    {
+        cerr << "Cannot open DB: " << sqlite3_errmsg(db) << endl;
+        return;
+    }
+
+    // ساخت جدول در صورت نبودن
+    const char *createTableSQL =
+        "CREATE TABLE IF NOT EXISTS user (id INT, name TEXT, username TEXT, password TEXT);";
+    sqlite3_exec(db, createTableSQL, NULL, NULL, NULL);
+
+    // ----------- تولید ID یکتا -----------
+    bool idExists = true;
+    while (idExists)
+    {
+        this->Id = IdGenerator(); // یه ID جدید تولید کن
+
+        sqlite3_stmt *checkStmt;
+        const char *checkSQL = "SELECT COUNT(*) FROM user WHERE id=?;";
+
+        rc = sqlite3_prepare_v2(db, checkSQL, -1, &checkStmt, NULL);
+        if (rc != SQLITE_OK)
+        {
+            // اگه prepare fail بشه، اینجا متوقف می‌شیم تا crash نکنیم
+            cerr << "Cannot prepare check statement: " << sqlite3_errmsg(db) << endl;
+            sqlite3_close(db);
+            return;
+        }
+
+        sqlite3_bind_int(checkStmt, 1, this->Id);
+
+        if (sqlite3_step(checkStmt) == SQLITE_ROW)
+        {
+            int count = sqlite3_column_int(checkStmt, 0);
+            // اگه count صفر بود یعنی این ID توی دیتابیس نیست -> یکتاست
+            idExists = (count > 0);
+        }
+        else
+        {
+            idExists = false; // اگه مشکلی در query بود، فرض می‌کنیم یکتاست تا گیر نکنیم
+        }
+
+        sqlite3_finalize(checkStmt); // آزاد کردن statement چک کردن
+    }
+    // ------------------------------------------------
+
+    // حالا که ID یکتا داریم، insert رو انجام بده
+    sqlite3_stmt *stmt;
+    const char *insertSQL =
+        "INSERT INTO user (id, name, username, password) VALUES (?, ?, ?, ?);";
+    rc = sqlite3_prepare_v2(db, insertSQL, -1, &stmt, NULL);
+    if (rc != SQLITE_OK)
+    {
+        cerr << "Cannot prepare statement: " << sqlite3_errmsg(db) << endl;
+        sqlite3_close(db);
+        return;
+    }
+
+    sqlite3_bind_int(stmt, 1, this->Id);
+    sqlite3_bind_text(stmt, 2, this->Name.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, this->UserName.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 4, this->Password.c_str(), -1, SQLITE_STATIC);
+
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE)
+    {
+        cerr << "Insert failed: " << sqlite3_errmsg(db) << endl;
+    }
+    else
+    {
+        cout << "User registered successfully with ID: " << this->Id << endl;
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
 }
 
 bool User::SignUp(string UserName,string Password)
@@ -159,7 +242,5 @@ void Admin::RemoveBook(string BookName)
 
 int main()
 {
-    Admin user;
     
-    user.ShowAll();
 }
