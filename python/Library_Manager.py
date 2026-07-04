@@ -34,29 +34,48 @@ class Book():
     def RemoveBook(self,BookName):#function for deletting the Data from Data Base
         self.BookName = BookName
         Bookcursor.execute('DELETE FROM book WHERE name=?;',(self.BookName))
-    def search(self,BookName,Type,Year):
-        pass
+    def search(self,BookName):
+        Bookcursor.execute('SELECT * FROM book WHERE name=?;', (BookName))
     def ShowAll(self):
-        print(f'{self.BookId} | {self.BookName} | {self.Type} | {self.Year}')
+        Bookcursor.execute('SELECT * FROM book;')
+        result = Bookcursor.fetchall()
+        for i in result:
+            print(f'{i[0]} | {i[1]} | {i[3]}')
     def getBook(self,BookName):
-        pass
+        Bookcursor.execute("""
+            UPDATE book 
+            SET give = False, 
+                count = count + 1 
+            WHERE name = ? AND give = True
+        """, (BookName,))
+        BookData.commit()
     def returnBook(self,BookName):
         pass
 class User():
     def __init__(self):
-        self.Name
-        self.Id
-        self.UserName
-        self.Password
+        self.Name = ''
+        self.Id = None
+        self.UserName = ''
+        self.Password = ''
         self.give = False
         self.book = Book()
-    def SignIn(self,Name,UserName,Password):
-        pass
-    def SignUp(self,UserName,Password):
-        if self.UserName == UserName and self.UserName == Password:
-            pass
-    def search():
-        pass
+    def SignUp(self,Name,UserName,Password):
+        self.Name = Name 
+        self.UserName = UserName
+        self.Password = Password
+        self.Id = IdGenerator()
+        Usercursor.execute("""INSERT INTO users (id, name, username, password) VALUES (?, ?, ?, ?);""",(self.Id,self.Name,self.UserName,self.Password))
+        UserData.commit()
+    def SignIn(self,UserName,Password):
+        Usercursor.execute("SELECT * FROM users WHERE username=? AND password=?", (UserName, Password))
+        result = Usercursor.fetchone()
+        if result:
+            print(f"Welcom {UserName}")
+        else:
+            print('This UserName or Password is Not Define')
+
+    def search(self,BookName):
+        self.book.search(BookName)
     def Get():
         pass
     def Return():
@@ -66,6 +85,11 @@ class User():
 class Admin(User):
     def __init__(self):
         super().__init__()
+    def SignIn(self,UserName,Password):
+        if AdminUserName == UserName and AdminUserName == Password:
+            print(f'Welcome {UserName}')
+        else:
+            print('The password or user is wrong')
     def AddBook(self,BookName,Type,Year):
         self.book.AddBook(BookName,Type,Year)
     def RemoveBook(self,BookName):
@@ -73,8 +97,8 @@ class Admin(User):
 
 
 def main():
-    book = Book()
-    book.AddBook('The Sports','All',2015)
+    pass
 
 
-main()
+if __name__ == "__main__":
+    main()
