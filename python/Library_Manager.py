@@ -44,18 +44,18 @@ class Book():
     def getBook(self,BookName):
         Bookcursor.execute("""
             UPDATE book 
-            SET give = False, 
+            SET give = True, 
                 count = count + 1 
-            WHERE name = ? AND give = True
-        """, (BookName,))
+            WHERE name = ? AND give = False
+        """, (BookName))
         BookData.commit()
-    def returnBook(self,BookName):
+    def returnBook(self,BookName):#problem is not work
         Bookcursor.execute("""
             UPDATE book 
             SET give = Ture, 
                 count = count + 1 
             WHERE name = ? AND give = False
-        """, (BookName,))
+        """, (BookName))
         BookData.commit()
 class User():
     def __init__(self):
@@ -104,39 +104,95 @@ class Admin(User):
 
 
 def main():
-    idandity = input('chose your role (Amin(A),User(U)): ')
-    if(idandity == 'A'):
-       
-        admin = Admin()
-        UserName = input('Enter UserName: ')
-        Password = input('Enter Password: ')
-        if admin.SignIn(UserName,Password):
-            number = 0
-            print('Welcom')
-            while number != 5:
-                
-                print('Pannel: ' \
-                '1)AddBook'\
-                '2)RemoveBook'\
-                '3)ShowAll'\
-                '4)Search'\
-                '5)exite'
-                )
-                number = int(input(""))
-                if number == 1:
-                    BookName = input("Enter BookName: ")
-                    Type = input("Enter Type: ")
-                    Year = int(input("Enter Year: "))
-                    admin.AddBook(BookName,Type,Year)
-                if number == 2:
-                    BookName = input("Enter BookName: ")
-                if number == 3:
-                    admin.ShowAll()
-                if number == 4:
-                    BookName = input("Enter BookName: ")
-                    admin.search(BookName)
-        else:
-            print ('UserName or Password is wrong')
+    while True:
+        idandity = input('chose your role (Amin(A),User(U)) for Exit(E): ')
+        if(idandity.upper() == 'A'):
+            admin = Admin()
+            while True:
+                UserName = input('Enter UserName: ')
+                Password = input('Enter Password: ')
+                if admin.SignIn(UserName,Password):
+                    number = 0
+                    print('Welcom')
+                    while number != 7:
+                        #pannel
+                        print('Pannel: ' \
+                        '1)AddBook'\
+                        '2)RemoveBook'\
+                        '3)GetBook'\
+                        '4)ReturnBook'\
+                        '5)ShowAll'\
+                        '6)Search'\
+                        '7)exit'
+                        )
+                        number = int(input(""))
+                        if number == 1:
+                            BookName = input("Enter BookName: ")
+                            Type = input("Enter Type: ")
+                            Year = int(input("Enter Year: "))
+                            admin.AddBook(BookName,Type,Year)
+                        if number == 2:
+                            BookName = input("Enter BookName: ")
+                            admin.RemoveBook(BookName)
+                        if number == 3:
+                            BookName = input("Enter BookName: ")
+                            admin.Get(BookName)
+                        if number == 4:
+                            BookName = input("Enter BookName: ")
+                            admin.Return(BookName)
+                        if number == 5:
+                            admin.ShowAll()
+                        if number == 6:
+                            BookName = input("Enter BookName: ")
+                            admin.search(BookName)
+                        if number == 7:
+                            break
+                else:
+                    print ('UserName or Password is wrong')
+        if(idandity.upper() == 'U'):
+            while True:
+                inup = input('Sign in (I) or sign up (U) , exite(E): ')
+                user = User()
+                if inup.upper() == 'U':
+                    Name = input('Enter Name: ')
+                    UserName = input('Enter UserName: ')
+                    Password = input('Enter Password: ')
+                    user.SignUp(Name,UserName,Password)
+                if inup.upper() == 'I':
+                    UserName = input('Enter UserName: ')
+                    Password = input('Enter Password: ')
+                    if user.SignIn(UserName,Password):
+                        number = 0
+                        print('Welcom')
+                        while number != 5:
+                            #pannel
+                            print('Pannel: ' \
+                            '1)GetBook'\
+                            '2)Return'\
+                            '3)ShowAll'\
+                            '4)Search'\
+                            '5)exite'
+                            )
+                            number = int(input(""))
+                            if number == 1:
+                                BookName = input("Enter BookName: ")
+                                user.Get(BookName)
+                            if number == 2:
+                                BookName = input("Enter BookName: ")
+                                user.Return(BookName)
+                            if number == 3:
+                                user.ShowAll()
+                            if number == 4:
+                                BookName = input("Enter BookName: ")
+                                user.search(BookName)
+                            if number == 7:
+                                break
+                    else:
+                        print ('UserName or Password is wrong')
+                if inup.upper() == 'E':
+                    break
+        if idandity.upper() == 'E':
+            exit()
             
 if __name__ == "__main__":
     main()
