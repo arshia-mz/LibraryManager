@@ -43,19 +43,19 @@ class Book():
             print(f'{i[0]} | {i[1]} | {i[3]}')
     def getBook(self,BookName):
         Bookcursor.execute("""
-            UPDATE book 
-            SET give = True, 
-                count = count + 1 
-            WHERE name = ? AND give = False
-        """, (BookName))
+        UPDATE book 
+        SET give = 'True', 
+            count = count + 1 
+        WHERE name = ? AND give = 'False'
+        """, (BookName,))
         BookData.commit()
-    def returnBook(self,BookName):#problem is not work
+        BookData.commit()
+    def returnBook(self,BookName):
         Bookcursor.execute("""
-            UPDATE book 
-            SET give = Ture, 
-                count = count + 1 
-            WHERE name = ? AND give = False
-        """, (BookName))
+        UPDATE book 
+        SET give = 'False' 
+        WHERE name = ? AND give = 'True'
+        """, (BookName,))
         BookData.commit()
 class User():
     def __init__(self):
