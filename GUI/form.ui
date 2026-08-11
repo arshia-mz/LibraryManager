@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1096</width>
+    <height>839</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #0f0f1a;
+    color: #f1f5f9;
+    font-family: Vazir, IRANSans, Tahoma;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="1">
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+    background-color: #1e1e2e;
+    border-radius: 12px;
+    border: 1px solid #2d2d44;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Vazir FD-WOL</family>
+          <pointsize>30</pointsize>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:none;
+border:none;
+font: 30pt &quot;Vazir FD-WOL&quot;;</string>
+        </property>
+        <property name="text">
+         <string>مدیریت کتابخانه</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QGroupBox" name="User_Login">
+          <property name="styleSheet">
+           <string notr="true">background:none;
+border:none;</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="2" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton">
+             <property name="font">
+              <font>
+               <family>Vazir</family>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+QPushButton:hover {
+    background-color: #2563eb;
+}
+
+QPushButton:pressed {
+    background-color: #1d4ed8;
+}</string>
+             </property>
+             <property name="text">
+              <string>ورود</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QWidget" name="widget_2" native="true">
+             <property name="styleSheet">
+              <string notr="true">background-color: none;
+border:none;</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QLineEdit" name="UserName_2">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #161625;
+    border: 1px solid #2d2d44;
+    border-radius: 8px;
+    padding: 10px;
+    color: #f1f5f9;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3b82f6;
+}</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="placeholderText">
+                 <string>نام کاربری</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="Password_2">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #161625;
+    border: 1px solid #2d2d44;
+    border-radius: 8px;
+    padding: 10px;
+    color: #f1f5f9;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3b82f6;
+}</string>
+                </property>
+                <property name="placeholderText">
+                 <string>رمز عبور</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="Admin_Login">
+          <property name="styleSheet">
+           <string notr="true">background:none;
+border:none;</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="Login">
+             <property name="font">
+              <font>
+               <family>Vazir</family>
+               <pointsize>18</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+QPushButton:hover {
+    background-color: #2563eb;
+}
+
+QPushButton:pressed {
+    background-color: #1d4ed8;
+}</string>
+             </property>
+             <property name="text">
+              <string>ورود</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QWidget" name="widget" native="true">
+             <property name="styleSheet">
+              <string notr="true">background-color: none;
+border:none;</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QLineEdit" name="UserName">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #161625;
+    border: 1px solid #2d2d44;
+    border-radius: 8px;
+    padding: 10px;
+    color: #f1f5f9;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3b82f6;
+}</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="placeholderText">
+                 <string>نام کاربری</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="Password">
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit {
+    background-color: #161625;
+    border: 1px solid #2d2d44;
+    border-radius: 8px;
+    padding: 10px;
+    color: #f1f5f9;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3b82f6;
+}</string>
+                </property>
+                <property name="placeholderText">
+                 <string>رمز عبور</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QFrame" name="frame_2">
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="User_Buttom">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+                background-color: #161625;
+                color: #94a3b8;
+                 border: none;
+                border-radius: 8px;
+                padding: 10px 30px;
+                font-size: 14px;
+                min-width: 120px;
+            }
+            QPushButton:checked {
+                background-color: #3b82f6;
+                color: white;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #1e1e2e;
+            }</string>
+           </property>
+           <property name="text">
+            <string>کاربر</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="Admin_Button">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+                background-color: #161625;
+                color: #94a3b8;
+                 border: none;
+                border-radius: 8px;
+                padding: 10px 30px;
+                font-size: 14px;
+                min-width: 120px;
+            }
+            QPushButton:checked {
+                background-color: #3b82f6;
+                color: white;
+                 border: none;
+            }
+            QPushButton:hover {
+                background-color: #1e1e2e;
+            }</string>
+           </property>
+           <property name="text">
+            <string>ادمین</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>100</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>100</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
