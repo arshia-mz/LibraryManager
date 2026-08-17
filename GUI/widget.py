@@ -20,11 +20,21 @@ class Widget(QWidget):
         self.ui.Admin_Button.setChecked(True)
         if self.ui.Admin_Button.isChecked:
             self.ui.User_Login.hide()
-            self.ui.User_Buttom.setChecked(False)
-        
+        self.ui.Admin_Button.clicked.connect(self.AdminClick)
+        self.ui.User_Buttom.clicked.connect(self.UserClick)
+        self.ui.AminLogin.clicked.connect(self.AdminLogged)
+        self.ui.UserLogin.clicked.connect(self.UserLogged)
 
-
-
+    def AdminClick(self):
+        self.ui.Admin_Button.setChecked(True)
+        self.ui.User_Buttom.setChecked(False)
+    def UserClick(self):
+        self.ui.Admin_Button.setChecked(False)
+        self.ui.User_Buttom.setChecked(True)
+    def AdminLogged(self):
+        pass
+    def UserLogged(self):
+        print('Admin Loggedin')
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = Widget()
