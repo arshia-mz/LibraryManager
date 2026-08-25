@@ -40,7 +40,7 @@
       <item row="3" column="0">
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QGroupBox" name="User_Login">
+         <widget class="QGroupBox" name="LoginForm">
           <property name="styleSheet">
            <string notr="true">background:none;
 border:none;</string>
@@ -48,16 +48,16 @@ border:none;</string>
           <property name="title">
            <string/>
           </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0" colspan="3">
-            <widget class="QWidget" name="widget_2" native="true">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="1" column="0" colspan="3">
+            <widget class="QWidget" name="widget" native="true">
              <property name="styleSheet">
               <string notr="true">background-color: none;
 border:none;</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
+             <layout class="QVBoxLayout" name="verticalLayout">
               <item>
-               <widget class="QLineEdit" name="UserName_2">
+               <widget class="QLineEdit" name="UserName">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
     background-color: #161625;
@@ -80,7 +80,23 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="Password_2">
+               <spacer name="verticalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="Password">
                 <property name="styleSheet">
                  <string notr="true">QLineEdit {
     background-color: #161625;
@@ -94,107 +110,34 @@ QLineEdit:focus {
     border: 1px solid #3b82f6;
 }</string>
                 </property>
+                <property name="echoMode">
+                 <enum>QLineEdit::EchoMode::Password</enum>
+                </property>
                 <property name="placeholderText">
                  <string>رمز عبور</string>
                 </property>
                </widget>
               </item>
+              <item>
+               <spacer name="verticalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
              </layout>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="UserLogin">
-             <property name="font">
-              <font>
-               <family>Vazir</family>
-               <pointsize>18</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-
-}
-
-QPushButton:hover {
-    background-color: #2563eb;
-}
-
-QPushButton:pressed {
-    background-color: #1d4ed8;
-}</string>
-             </property>
-             <property name="text">
-              <string>ورود</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>100</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="1">
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Orientation::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="0">
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>100</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="Admin_Login">
-          <property name="styleSheet">
-           <string notr="true">background:none;
-border:none;</string>
-          </property>
-          <property name="title">
-           <string/>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="1" column="0">
+           <item row="2" column="0">
             <spacer name="horizontalSpacer_3">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
@@ -210,7 +153,7 @@ border:none;</string>
              </property>
             </spacer>
            </item>
-           <item row="2" column="1">
+           <item row="3" column="1">
             <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Orientation::Vertical</enum>
@@ -226,8 +169,8 @@ border:none;</string>
              </property>
             </spacer>
            </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="AminLogin">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="Login">
              <property name="font">
               <font>
                <family>Vazir</family>
@@ -261,7 +204,7 @@ QPushButton:pressed {
              </property>
             </widget>
            </item>
-           <item row="1" column="2">
+           <item row="2" column="2">
             <spacer name="horizontalSpacer_4">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
@@ -276,59 +219,6 @@ QPushButton:pressed {
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="0" column="0" colspan="3">
-            <widget class="QWidget" name="widget" native="true">
-             <property name="styleSheet">
-              <string notr="true">background-color: none;
-border:none;</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout">
-              <item>
-               <widget class="QLineEdit" name="UserName">
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    background-color: #161625;
-    border: 1px solid #2d2d44;
-    border-radius: 8px;
-    padding: 10px;
-    color: #f1f5f9;
-}
-
-QLineEdit:focus {
-    border: 1px solid #3b82f6;
-}</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-                </property>
-                <property name="placeholderText">
-                 <string>نام کاربری</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="Password">
-                <property name="styleSheet">
-                 <string notr="true">QLineEdit {
-    background-color: #161625;
-    border: 1px solid #2d2d44;
-    border-radius: 8px;
-    padding: 10px;
-    color: #f1f5f9;
-}
-
-QLineEdit:focus {
-    border: 1px solid #3b82f6;
-}</string>
-                </property>
-                <property name="placeholderText">
-                 <string>رمز عبور</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
            </item>
           </layout>
          </widget>
@@ -421,6 +311,22 @@ font: 30pt &quot;Vazir FD-WOL&quot;;</string>
          </item>
         </layout>
        </widget>
+      </item>
+      <item row="4" column="0">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>80</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>

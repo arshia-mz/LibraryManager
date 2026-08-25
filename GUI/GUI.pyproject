@@ -1,6 +1,9 @@
 {
     "files": [
         "widget.py",
-        "form.ui"
+        "form.ui",
+        "adminpage.ui",
+        "admin_page.py",
+        "main.py"
     ]
 }

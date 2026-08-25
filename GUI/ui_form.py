@@ -44,140 +44,13 @@ class Ui_Widget(object):
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.User_Login = QGroupBox(self.frame)
-        self.User_Login.setObjectName(u"User_Login")
-        self.User_Login.setStyleSheet(u"background:none;\n"
+        self.LoginForm = QGroupBox(self.frame)
+        self.LoginForm.setObjectName(u"LoginForm")
+        self.LoginForm.setStyleSheet(u"background:none;\n"
 "border:none;")
-        self.gridLayout_3 = QGridLayout(self.User_Login)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.widget_2 = QWidget(self.User_Login)
-        self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setStyleSheet(u"background-color: none;\n"
-"border:none;")
-        self.verticalLayout_2 = QVBoxLayout(self.widget_2)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.UserName_2 = QLineEdit(self.widget_2)
-        self.UserName_2.setObjectName(u"UserName_2")
-        self.UserName_2.setStyleSheet(u"QLineEdit {\n"
-"    background-color: #161625;\n"
-"    border: 1px solid #2d2d44;\n"
-"    border-radius: 8px;\n"
-"    padding: 10px;\n"
-"    color: #f1f5f9;\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 1px solid #3b82f6;\n"
-"}")
-        self.UserName_2.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
-
-        self.verticalLayout_2.addWidget(self.UserName_2)
-
-        self.Password_2 = QLineEdit(self.widget_2)
-        self.Password_2.setObjectName(u"Password_2")
-        self.Password_2.setStyleSheet(u"QLineEdit {\n"
-"    background-color: #161625;\n"
-"    border: 1px solid #2d2d44;\n"
-"    border-radius: 8px;\n"
-"    padding: 10px;\n"
-"    color: #f1f5f9;\n"
-"}\n"
-"\n"
-"QLineEdit:focus {\n"
-"    border: 1px solid #3b82f6;\n"
-"}")
-
-        self.verticalLayout_2.addWidget(self.Password_2)
-
-
-        self.gridLayout_3.addWidget(self.widget_2, 0, 0, 1, 3)
-
-        self.UserLogin = QPushButton(self.User_Login)
-        self.UserLogin.setObjectName(u"UserLogin")
-        font = QFont()
-        font.setFamilies([u"Vazir"])
-        font.setPointSize(18)
-        self.UserLogin.setFont(font)
-        self.UserLogin.setStyleSheet(u"QPushButton {\n"
-"    background-color: #3b82f6;\n"
-"    color: white;\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"    padding: 10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #2563eb;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #1d4ed8;\n"
-"}")
-
-        self.gridLayout_3.addWidget(self.UserLogin, 1, 1, 1, 1)
-
-        self.horizontalSpacer_6 = QSpacerItem(100, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_6, 1, 2, 1, 1)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.gridLayout_3.addItem(self.verticalSpacer_4, 2, 1, 1, 1)
-
-        self.horizontalSpacer_5 = QSpacerItem(100, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
-
-
-        self.verticalLayout_3.addWidget(self.User_Login)
-
-        self.Admin_Login = QGroupBox(self.frame)
-        self.Admin_Login.setObjectName(u"Admin_Login")
-        self.Admin_Login.setStyleSheet(u"background:none;\n"
-"border:none;")
-        self.gridLayout_2 = QGridLayout(self.Admin_Login)
+        self.gridLayout_2 = QGridLayout(self.LoginForm)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.horizontalSpacer_3 = QSpacerItem(100, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer_3, 1, 0, 1, 1)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.gridLayout_2.addItem(self.verticalSpacer_3, 2, 1, 1, 1)
-
-        self.AminLogin = QPushButton(self.Admin_Login)
-        self.AminLogin.setObjectName(u"AminLogin")
-        font1 = QFont()
-        font1.setFamilies([u"Vazir"])
-        font1.setPointSize(18)
-        font1.setBold(False)
-        self.AminLogin.setFont(font1)
-        self.AminLogin.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.AminLogin.setStyleSheet(u"QPushButton {\n"
-"    background-color: #3b82f6;\n"
-"    color: white;\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"    padding: 10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #2563eb;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #1d4ed8;\n"
-"}")
-
-        self.gridLayout_2.addWidget(self.AminLogin, 1, 1, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(100, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer_4, 1, 2, 1, 1)
-
-        self.widget = QWidget(self.Admin_Login)
+        self.widget = QWidget(self.LoginForm)
         self.widget.setObjectName(u"widget")
         self.widget.setStyleSheet(u"background-color: none;\n"
 "border:none;")
@@ -200,6 +73,10 @@ class Ui_Widget(object):
 
         self.verticalLayout.addWidget(self.UserName)
 
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout.addItem(self.verticalSpacer_5)
+
         self.Password = QLineEdit(self.widget)
         self.Password.setObjectName(u"Password")
         self.Password.setStyleSheet(u"QLineEdit {\n"
@@ -213,26 +90,70 @@ class Ui_Widget(object):
 "QLineEdit:focus {\n"
 "    border: 1px solid #3b82f6;\n"
 "}")
+        self.Password.setEchoMode(QLineEdit.EchoMode.Password)
 
         self.verticalLayout.addWidget(self.Password)
 
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.gridLayout_2.addWidget(self.widget, 0, 0, 1, 3)
+        self.verticalLayout.addItem(self.verticalSpacer_6)
 
 
-        self.verticalLayout_3.addWidget(self.Admin_Login)
+        self.gridLayout_2.addWidget(self.widget, 1, 0, 1, 3)
+
+        self.horizontalSpacer_3 = QSpacerItem(100, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_2.addItem(self.horizontalSpacer_3, 2, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.gridLayout_2.addItem(self.verticalSpacer_3, 3, 1, 1, 1)
+
+        self.Login = QPushButton(self.LoginForm)
+        self.Login.setObjectName(u"Login")
+        font = QFont()
+        font.setFamilies([u"Vazir"])
+        font.setPointSize(18)
+        font.setBold(False)
+        self.Login.setFont(font)
+        self.Login.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.Login.setStyleSheet(u"QPushButton {\n"
+"    background-color: #3b82f6;\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #2563eb;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #1d4ed8;\n"
+"}")
+
+        self.gridLayout_2.addWidget(self.Login, 2, 1, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(100, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_2.addItem(self.horizontalSpacer_4, 2, 2, 1, 1)
+
+
+        self.verticalLayout_3.addWidget(self.LoginForm)
 
 
         self.gridLayout_4.addLayout(self.verticalLayout_3, 3, 0, 1, 1)
 
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        font2 = QFont()
-        font2.setFamilies([u"Vazir FD-WOL"])
-        font2.setPointSize(30)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.label.setFont(font2)
+        font1 = QFont()
+        font1.setFamilies([u"Vazir FD-WOL"])
+        font1.setPointSize(30)
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.label.setFont(font1)
         self.label.setStyleSheet(u"background:none;\n"
 "border:none;\n"
 "font: 30pt \"Vazir FD-WOL\";")
@@ -293,6 +214,10 @@ class Ui_Widget(object):
 
         self.gridLayout_4.addWidget(self.frame_2, 2, 0, 1, 1, Qt.AlignmentFlag.AlignVCenter)
 
+        self.verticalSpacer_4 = QSpacerItem(20, 80, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.gridLayout_4.addItem(self.verticalSpacer_4, 4, 0, 1, 1)
+
 
         self.gridLayout.addWidget(self.frame, 1, 1, 1, 1)
 
@@ -320,14 +245,10 @@ class Ui_Widget(object):
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        self.User_Login.setTitle("")
-        self.UserName_2.setPlaceholderText(QCoreApplication.translate("Widget", u"\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc", None))
-        self.Password_2.setPlaceholderText(QCoreApplication.translate("Widget", u"\u0631\u0645\u0632 \u0639\u0628\u0648\u0631", None))
-        self.UserLogin.setText(QCoreApplication.translate("Widget", u"\u0648\u0631\u0648\u062f", None))
-        self.Admin_Login.setTitle("")
-        self.AminLogin.setText(QCoreApplication.translate("Widget", u"\u0648\u0631\u0648\u062f", None))
+        self.LoginForm.setTitle("")
         self.UserName.setPlaceholderText(QCoreApplication.translate("Widget", u"\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc", None))
         self.Password.setPlaceholderText(QCoreApplication.translate("Widget", u"\u0631\u0645\u0632 \u0639\u0628\u0648\u0631", None))
+        self.Login.setText(QCoreApplication.translate("Widget", u"\u0648\u0631\u0648\u062f", None))
         self.label.setText(QCoreApplication.translate("Widget", u"\u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u062a\u0627\u0628\u062e\u0627\u0646\u0647", None))
         self.User_Buttom.setText(QCoreApplication.translate("Widget", u"\u06a9\u0627\u0631\u0628\u0631", None))
         self.Admin_Button.setText(QCoreApplication.translate("Widget", u"\u0627\u062f\u0645\u06cc\u0646", None))
