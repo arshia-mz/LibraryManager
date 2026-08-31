@@ -19,6 +19,7 @@ class Widget(QWidget):
 
         self.ui.Admin_Button.setChecked(True)
         self.ui.Admin_Button.clicked.connect(self.AdminClick)
+        self.ui.User_Buttom.clicked.connect(self.UserClick)
 
         self.ui.Login.clicked.connect(self.AdminLogged)
 
